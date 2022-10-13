@@ -1,4 +1,5 @@
 __pychache__
 *.pyc
+test.py
 geckodriver.log
 data.yml

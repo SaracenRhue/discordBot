@@ -3,6 +3,7 @@ import yaml
 import tower
 import chat
 import history
+import test
 
 
 with open('data.yml', 'r') as f:
@@ -42,5 +43,7 @@ async def on_message(message):
   elif 'vsc' in mgs:
     tower.inst_codeserver()
     await message.channel.send(chat.rnd_txt('working'))
-
+  # elif 'test' in mgs:
+  #   await message.channel.send(file=discord.File('chat.yml')) # send file
+    
 client.run(TOKEN)
