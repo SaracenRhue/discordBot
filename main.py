@@ -14,12 +14,13 @@ client = discord.Client(intents=discord.Intents.default())
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
 
+history = []
 @client.event
 async def on_message(message):
   mgs = message.content.lower()
   if message.author == client.user:
     return
-
+  history.append(mgs)
   if mgs.startswith('hello'):
     await message.channel.send('hi')
   elif mgs.startswith('$'):

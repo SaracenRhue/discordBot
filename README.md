@@ -1,5 +1,13 @@
 # discord-bot
 
+## dependencies
+
+```bash
+pip3 install discord.py pyyaml selenium pyautogui
+```
+
+## setup
+
 Add a data.yml file with the following structure:
 
 ```yml

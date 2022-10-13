@@ -6,6 +6,5 @@ done:
   - I'm done, done
   - I'm finished
   - finished
-greetings:
-goodbyes:
-universal:
+greeting:
+  - Hi
