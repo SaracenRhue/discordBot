@@ -3,7 +3,7 @@
 ## dependencies
 
 ```bash
-pip3 install discord.py pyyaml selenium pyautogui
+pip3 install discord pyyaml selenium pyautogui
 ```
 
 ## setup
