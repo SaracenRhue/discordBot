@@ -53,7 +53,7 @@ async def on_message(message):
   #   return
 
   await ssh.check(message)
-
+ 
   if mgs.startswith('hello') or mgs.startswith('hi'):
     await chat.rnd('greeting', message)
   elif mgs.startswith('$'):
