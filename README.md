@@ -3,6 +3,7 @@
 ## dependencies
 
 ```bash
+sudo apt install python3 python3-pip sshpass
 pip3 install discord pyyaml selenium pyautogui
 ```
 

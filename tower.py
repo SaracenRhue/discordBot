@@ -11,31 +11,6 @@ with open('data.yml', 'r') as file:
 
 TOWER = 'http://192.168.178.132'
 
-## toggle gaming vm
-def toggle_vm():
-    driver = webdriver.Firefox()
-    driver.get(TOWER)
-    sleep(1)
-    # login
-    driver.find_elements(by=By.TAG_NAME, value='input')[0].send_keys(USER)
-    driver.find_elements(by=By.TAG_NAME, value='input')[1].send_keys(PASS)
-    driver.find_elements(by=By.TAG_NAME, value='button')[0].click()
-    #switch to virtual machines
-    driver.get(TOWER+'/VMs')
-    sleep(1)
-    # open vm dropdown
-    vm_icon = driver.find_elements(by=By.TAG_NAME, value='img')[3]
-    vm_icon.click()
-    sleep(1)
-    # toggle vm
-    toggle_icon = driver.find_elements(by=By.TAG_NAME, value='li')[6]
-    toggle_icon.click()
-    # close browser
-    driver.close()
-    cmd('pkill firefox')
-
-########################################################
-
 
 # execute shell command
 def use_shell(command):
@@ -167,5 +142,7 @@ def inst_codeserver():
     terminal.send_keys('bash -c "$(curl -fsSL https://raw.githubusercontent.com/SaracenRhue/unraidScripts/main/codeserver.sh)"')
     terminal.send_keys('\n')
 
+##################################################################
+ 
 
 

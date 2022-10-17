@@ -9,3 +9,7 @@ done:
 greeting:
   - Hi
   - Hello
+container stop:
+container start:
+vm stop:
+vm start:

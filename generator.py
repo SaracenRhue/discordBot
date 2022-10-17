@@ -1,5 +1,5 @@
 import yaml
-from os import system
+import ssh
 
 
 with open('generator_config.yml', 'r') as file:
@@ -17,9 +17,9 @@ def create_pro(name, type):
     create_cmd = pro_type['cmd']
     create_cmd = create_cmd.replace('pro_name', pro_name)
 
-    system('cd && cd '+path+' && '+create_cmd)
+    ssh.into_mac(f'cd {path} && {create_cmd}')
 
     if 'github' in create_cmd:
-        system('cd && rm -rf '+path+pro_name+'/LICENSE') #remove license file
+        ssh.into_mac(f'cd && rm -rf {path}{pro_name}/LICENSE') #remove license file
 
 

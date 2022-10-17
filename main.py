@@ -3,7 +3,9 @@ import yaml
 import tower
 import chat
 import history
+import ssh
 import generator as gen
+import os
 
 
 
@@ -50,6 +52,7 @@ async def on_message(message):
   #   await chat.send('what type of project do you want to make?', message)
   #   return
 
+  await ssh.check(message)
 
   if mgs.startswith('hello') or mgs.startswith('hi'):
     await chat.rnd('greeting', message)
@@ -67,10 +70,9 @@ async def on_message(message):
   elif 'vsc' in mgs:
     tower.inst_codeserver()
     await chat.rnd('working', message)
-  # elif 'new' and 'project' in history.log:
-  #   type = history.log[1]
-  #   name = history.log[-1]
-  #   gen.create_pro(name, type)
+  elif 'test' in mgs:
+    ssh.into_tower('bash ./test.sh')
+ 
 
   history.log.clear()
 
