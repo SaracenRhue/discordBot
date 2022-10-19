@@ -15,7 +15,9 @@ TOWER = 'http://192.168.178.132'
 # execute shell command
 def use_shell(command):
     PATH = '/mnt/user'
-    driver = webdriver.Firefox()
+    op = webdriver.FirefoxOptions()
+    op.add_argument('--headless')
+    driver = webdriver.Firefox(options=op)
     driver.get(TOWER)
     # login
     driver.find_elements(by=By.TAG_NAME, value='input')[0].send_keys(USER)
@@ -40,7 +42,9 @@ def use_shell(command):
 def random_stash_video():
     stash_url = 'http://192.168.178.132:3069/scenes?disp=1&perPage=1&sortby=random&sortdir=desc'
 
-    driver = webdriver.Firefox()
+    op = webdriver.FirefoxOptions()
+    op.add_argument('--headless')
+    driver = webdriver.Firefox(options=op)
     driver.get(stash_url)
     sleep(1)
     driver.find_element(by=By.ID, value='username').send_keys(USER)
@@ -60,7 +64,6 @@ def random_stash_video():
         if link.__contains__("/scene/"):
             video_url = link
     driver.close()
-    cmd('pkill firefox')
 
     return str(video_url)
 
@@ -89,7 +92,9 @@ def tag_hqporner():
         file_name = file_name.replace(" ", "+")
         return site_url + file_name
 
-    driver = webdriver.Firefox()
+    op = webdriver.FirefoxOptions()
+    op.add_argument('--headless')
+    driver = webdriver.Firefox(options=op)
     driver.get(stash_url)
     sleep(1)
     driver.find_element(by=By.ID, value='username').send_keys(USER)
@@ -128,7 +133,9 @@ def tag_hqporner():
 
 # reinstall code-server 
 def inst_codeserver():
-    driver = webdriver.Firefox()
+    op = webdriver.FirefoxOptions()
+    op.add_argument('--headless')
+    driver = webdriver.Firefox(options=op)
     driver.get(TOWER)
     # login
     driver.find_elements(by=By.TAG_NAME, value='input')[0].send_keys(USER)

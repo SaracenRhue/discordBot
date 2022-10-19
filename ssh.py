@@ -57,5 +57,3 @@ async def check(message):
                 into_tower(stop_vm(data['vms'][vm]['name']))
                 await message.channel.send(f"Stopping {vm}")
                 return
-    else:
-        await message.channel.send("There is no such container or vm")
