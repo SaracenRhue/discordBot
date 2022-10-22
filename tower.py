@@ -4,12 +4,11 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import yaml
 
-with open('data.yml', 'r') as file:
+with open('secrets.yml', 'r') as file:
     data = yaml.safe_load(file)
     USER = data['username']
     PASS = data['password']
-
-TOWER = 'http://192.168.178.132'
+    TOWER = data['tower_ip']
 
 
 # execute shell command
@@ -71,7 +70,7 @@ def random_stash_video():
 
 # get metadata for stash from hqporner
 def tag_hqporner():
-    with open('data.yml', 'r') as file:
+    with open('secrets.yml', 'r') as file:
         data = yaml.safe_load(file)
         USER = data['username']
         PASS = data['password']

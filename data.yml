@@ -1,0 +1,113 @@
+nextcloud: /Nextcloud
+
+vms:
+  windows: 
+    name: Windows\ 11
+  macos: 
+    name: Macinabox\ Monterey
+containers:
+  guacamole:
+    id: 7c6fe913bf65
+    name: ApacheGuacamole
+  archivebox:
+    id: ba99bb562897
+    name: archivebox
+  delugevpn:
+    id: f076481e0c0c
+    name: binhex-delugevpn
+  krusader:
+    id: 1f8e520d910b
+    name: binhex-krusader
+  overseerr:
+    id: 5e4ea4cae695
+    name: binhex-overseerr
+  radarr:
+    id: c90db976dcfe
+    name: binhex-radarr
+  resilio:
+    id: 96e2150cf025
+    name: binhex-resilio-sync
+  sabnzb:
+    id: 433806a719d4
+    name: binhex-sabnzbdvpn
+  sonarr:
+    id: 4586d14693d9
+    name: binhex-sonarr
+  syncthing:
+    id: e2b36af00f15
+    name: binhex-syncthing
+  bitwarden:
+    id: de5d83ec558f
+    name: bitwardenrs
+  code-server:
+    id: 2735547f07eb
+    name: code-server
+  cryptgeon:
+    id: b03dcbcbbac4
+    name: cryptgeon
+  dashdot:
+    id: 44e560b2b307
+    name: Dashdot
+  debian:
+    id: 6cd4c9bc381f
+    name: Debian-Bullseye
+  duckdns:
+    id: c62a0e9ebfe4
+    name: duckdns
+  filebot:
+    id: 407a6816418e
+    name: FileBot
+  firefox:
+    id: 6634a3fb1daa
+    name: firefox
+  jellyfin:
+    id: a1d27f06baca
+    name: jellyfin
+  komga:
+    id: 5362b00a88c2
+    name: Komga
+  macinabox:
+    id: b37603948917
+    name: macinabox
+  mariadb:
+    id: e8185286a8c2
+    name: mariadb
+  mediainfo:
+    id: 23762f5c1c4b
+    name: MediaInfo
+  minecraft:
+    id: 0db54bca8352
+    name: minecraft
+  mysql:
+    id: 2db76fb0ca55
+    name: mysql
+  nextcloud:
+    id: cfb0877bd03c
+    name: nextcloud
+  nginx:
+    id: 20d79a40c72b
+    name: NginxProxyManager
+  organizr:
+    id: 00ab32efb976
+    name: organizrv2
+  pihole:
+    id: b39612b844b9
+    name: pihole-template  
+  plex:
+    id: 007113f5d727
+    name: plex
+  portainer:
+    id: 309c301fdbbe
+    name: Portainer-CE
+  stash:
+    id: 809ca6d65484
+    name: Stash
+  vm icons:
+    id: b0a2f7770801
+    name: vm_custom_icons
+  wordpress:
+    id: 47f8fac26b69
+    name: WordPress
+  youtube:
+    id: cea2ec486a62
+    name: youtube-dl-material

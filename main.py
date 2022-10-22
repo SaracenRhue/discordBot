@@ -9,7 +9,7 @@ import os
 
 
 
-with open('data.yml', 'r') as f:
+with open('secrets.yml', 'r') as f:
     data = yaml.safe_load(f)
     TOKEN = data['token']
     ADMIN = data['bot_admin']

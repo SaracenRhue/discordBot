@@ -9,15 +9,21 @@ pip3 install discord pyyaml selenium pyautogui
 
 ## setup
 
-Add a data.yml file with the following structure:
+Add a secrets.yml file with the following structure:
 
 ```yml
-token: "your discord bot token"
-bot_admin: "your discord username#id"
-toweruser: "your tower root user"
-username: "your container username"
-password: "passw"
-
+token: your discord bot token
+bot_admin: your discord username#id
+toweruser: your tower root user
+username: your container username
+password: password
 tower_ip: http://tower_ip
-nextcloud: nextcloud_path
+
+ssh:
+  mac: 
+    login: user@ip
+    password: password
+  tower:
+    login: root_user@ip
+    password: password
 ```

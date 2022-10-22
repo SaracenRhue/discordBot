@@ -1,12 +1,14 @@
 from os import system as cmd
 import yaml
 
-with open('data.yml', 'r') as f:
+with open('secrets.yml', 'r') as f:
     data = yaml.safe_load(f)
     TOWER_LOGIN = data['ssh']['tower']['login']
     TOWER_PASSWORD = data['ssh']['tower']['password']
     MAC_LOGIN = data['ssh']['mac']['login']
     MAC_PASSWORD = data['ssh']['mac']['password']
+with open('data.yml', 'r') as f:
+    data = yaml.safe_load(f)
     CONTAINERS = data['containers']
     VMS = data['vms']
 
