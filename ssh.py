@@ -40,22 +40,22 @@ async def check(message):
     if 'start' in mgs:
         for container in CONTAINERS:
             if container in mgs:
-                await message.channel.send(f"Starting {container}")
                 into_tower(start_container(data['containers'][container]['name']))
+                await message.channel.send(f"Started {container}")
                 return
         for vm in VMS:
             if vm in mgs:
-                await message.channel.send(f"Starting {vm}")
                 into_tower(start_vm(data['vms'][vm]['name']))
+                await message.channel.send(f"Started {vm}")
                 return
     elif 'stop' in mgs:
         for container in CONTAINERS:
             if container in mgs:
-                await message.channel.send(f"Stopping {container}")
                 into_tower(stop_container(data['containers'][container]['name']))
+                await message.channel.send(f"Stopped {container}")
                 return
         for vm in VMS:
             if vm in mgs:
-                await message.channel.send(f"Stopping {vm}")
                 into_tower(stop_vm(data['vms'][vm]['name']))
+                await message.channel.send(f"Stopped {vm}")
                 return

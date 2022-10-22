@@ -70,8 +70,8 @@ async def on_message(message):
   elif 'vsc' in mgs:
     tower.inst_codeserver()
     await chat.rnd('working', message)
-  elif 'test' in mgs:
-    ssh.into_tower('bash ./test.sh')
+  # elif 'test' in mgs:
+  #   ssh.into_tower('bash ./test.sh')
  
 
   history.log.clear()
