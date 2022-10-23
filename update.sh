@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../
+cd
 mv discordbot/secrets.yml .
 rm -fr discordbot
 git clone https://github.com/SaracenRhue/discordbot.git
