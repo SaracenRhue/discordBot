@@ -1,8 +1,8 @@
 import discord
 import yaml
+import openai
 import tower
 import chat
-import history
 import ssh
 import generator as gen
 import os
@@ -12,6 +12,7 @@ import os
 with open('secrets.yml', 'r') as f:
     data = yaml.safe_load(f)
     TOKEN = data['token']
+    OPENAI = data['openai']
     ADMIN = data['bot_admin']
 
 
@@ -33,48 +34,42 @@ async def on_message(message):
 
   mgs = message.content.lower()
 
-  history.add_msg(mgs)
-  print(history.log)
-  # if 'new' and 'project' and 'c++' or 'cpp' or 'python' or 'docker' in history.log:
-  #   history.log = []
-  #   history.log.append('project_name')
-  #   if 'c++' or 'cpp' in history.log:
-  #     await chat.send('c++', message)
-  #     return
-  #   elif 'python' in history.log:
-  #     await chat.send('python', message)
-  #     return
-  #   elif 'docker' in history.log:
-  #     await chat.send('docker', message)
-  #     return
-
-  # elif 'new'and 'project' in history.log:
-  #   await chat.send('what type of project do you want to make?', message)
-  #   return
-
-  await ssh.check(message)
+  # await ssh.check(message)
  
-  if mgs.startswith('hello') or mgs.startswith('hi'):
-    await chat.rnd('greeting', message)
-  elif mgs.startswith('$'):
-    tower.use_shell(mgs[1:])
-  elif 'vm' in mgs:
-    tower.toggle_vm()
-    await chat.rnd('working', message)
-  elif 'hqporner' in mgs:
-    tower.tag_hqporner()
-    await chat.rnd('working', message)
-  elif 'porn' in mgs:
-    await chat.rnd('working', message)
-    await chat.send(tower.random_stash_video(), message)
-  elif 'vsc' in mgs:
-    tower.inst_codeserver()
-    await chat.rnd('working', message)
+  # if mgs.startswith('hello') or mgs.startswith('hi'):
+  #   await chat.rnd('greeting', message)
+  # elif mgs.startswith('$'):
+  #   tower.use_shell(mgs[1:])
+  # elif 'vm' in mgs:
+  #   tower.toggle_vm()
+  #   await chat.rnd('working', message)
+  # elif 'hqporner' in mgs:
+  #   tower.tag_hqporner()
+  #   await chat.rnd('working', message)
+  # elif 'porn' in mgs:
+  #   await chat.rnd('working', message)
+  #   await chat.send(tower.random_stash_video(), message)
+  # elif 'vsc' in mgs:
+  #   tower.inst_codeserver()
+  #   await chat.rnd('working', message)
   # elif 'test' in mgs:
   #   ssh.into_tower('bash ./test.sh')
  
 
-  history.log.clear()
+    # Apply your API key
+  openai.api_key = OPENAI
+  
+  # Use the `openai.Completion.create()` method to generate text
+  prompt = (mgs)
+  completions = openai.Completion.create(
+      engine='text-davinci-002',
+      prompt=prompt,
+      max_tokens=1024,
+      n=1,
+      stop=None,
+      temperature=0.5,
+  )
+  await message.channel.send(completions.choices[0].text)
 
-    
+
 client.run(TOKEN)
