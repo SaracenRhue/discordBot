@@ -4,7 +4,6 @@ import openai
 import tower
 import chat
 import ssh
-import generator as gen
 import os
 
 
@@ -34,29 +33,8 @@ async def on_message(message):
 
   mgs = message.content.lower()
 
-  # await ssh.check(message)
- 
-  # if mgs.startswith('hello') or mgs.startswith('hi'):
-  #   await chat.rnd('greeting', message)
-  # elif mgs.startswith('$'):
-  #   tower.use_shell(mgs[1:])
-  # elif 'vm' in mgs:
-  #   tower.toggle_vm()
-  #   await chat.rnd('working', message)
-  # elif 'hqporner' in mgs:
-  #   tower.tag_hqporner()
-  #   await chat.rnd('working', message)
-  # elif 'porn' in mgs:
-  #   await chat.rnd('working', message)
-  #   await chat.send(tower.random_stash_video(), message)
-  # elif 'vsc' in mgs:
-  #   tower.inst_codeserver()
-  #   await chat.rnd('working', message)
-  # elif 'test' in mgs:
-  #   ssh.into_tower('bash ./test.sh')
- 
+ # await ssh.check(message)
 
-    # Apply your API key
   openai.api_key = OPENAI
   
   # Use the `openai.Completion.create()` method to generate text
