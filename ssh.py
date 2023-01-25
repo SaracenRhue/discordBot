@@ -5,8 +5,6 @@ with open('secrets.yml', 'r') as f:
     data = yaml.safe_load(f)
     TOWER_LOGIN = data['ssh']['tower']['login']
     TOWER_PASSWORD = data['ssh']['tower']['password']
-    MAC_LOGIN = data['ssh']['mac']['login']
-    MAC_PASSWORD = data['ssh']['mac']['password']
 with open('data.yml', 'r') as f:
     data = yaml.safe_load(f)
     CONTAINERS = data['containers']
@@ -16,8 +14,6 @@ with open('data.yml', 'r') as f:
 
 def into_tower(command):
     send(TOWER_LOGIN, TOWER_PASSWORD, command)
-def into_mac(command):
-    send(MAC_LOGIN, MAC_PASSWORD, command)
 
 def send(host, password, command):
     cmd(f"sshpass -p '{password}' ssh {host} '{command}'")
