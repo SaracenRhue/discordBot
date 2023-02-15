@@ -1,0 +1,5 @@
+discord.py 
+pyyaml
+nltk
+torch
+numpy

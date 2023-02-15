@@ -1,0 +1,226 @@
+intents:
+- tag: greeting
+  patterns:
+  - Hi
+  - Hey
+  - How are you
+  - Is anyone there?
+  - Hello
+  - Good day
+  responses:
+  - Hey :-)
+  - Hello, thanks for visiting
+  - Hi there, what can I do for you?
+  - Hi there, how can I help?
+
+- tag: goodbye
+  patterns:
+  - Bye
+  - See you later
+  - Goodbye
+  responses:
+  - See you later, thanks for visiting
+  - Have a nice day
+  - Bye! Come back again soon.
+
+- tag: thanks
+  patterns:
+  - Thanks
+  - Thank you
+  - That's helpful
+  - Thank's a lot!
+  responses:
+  - Happy to help!
+  - Any time!
+  - My pleasure
+
+- tag: funny
+  patterns:
+  - Tell me a joke!
+  - Tell me something funny!
+  - Do you know a joke?
+  responses:
+  - Why did the hipster burn his mouth? He drank the coffee before it was cool.
+  - What did the buffalo say when his son left for college? Bison.
+
+
+### VMs ###
+- tag: start windows
+  patterns:
+  - Start Windows VM
+  - Start Windows
+  - Start Windows 11
+  - Start Windows 11 VM
+  - Start Windows 11 Virtual Machine
+  - Start my Windows VM
+  - Start my Windows 11 VM
+  - Start my Windows 11 Virtual Machine
+  - Start my Windows VM
+  - Start my Windows Virtual Machine
+  - Fire up Windows 11
+  - Fire up Windows 11 VM
+  - Fire up Windows 11 Virtual Machine
+  - Fire up my Windows VM
+  - Fire up my W11
+  - Fire up my W11 VM
+  responses:
+  - I will start your Windows 11 VM
+  - I will start your Windows VM
+  - I will start your Windows 11 Virtual Machine
+  - starting your Windows 11 VM
+  - starting your Windows VM
+  - starting your Windows 11 Virtual Machine
+- tag: stop windows
+  patterns:
+  - Stop Windows VM
+  - Stop Windows
+  - Stop Windows 11
+  - Stop Windows 11 VM
+  - Stop Windows 11 Virtual Machine
+  - Stop my Windows VM
+  - Stop my Windows 11 VM
+  - Stop my Windows 11 Virtual Machine
+  - Stop my Windows VM
+  - Stop my Windows Virtual Machine
+  - Shut down Windows 11
+  - Shut down Windows 11 VM
+  - Shut down Windows 11 Virtual Machine
+  - Shut down my Windows VM
+  - Shut down my W11
+  - Shut down my W11 VM
+  responses:
+  - I will stop your Windows 11 VM
+  - I will stop your Windows VM
+  - I will stop your Windows 11 Virtual Machine
+  - stopping your Windows 11 VM
+  - stopping your Windows VM
+  - stopping your Windows 11 Virtual Machine
+
+
+### containers ###
+- tag: start plex
+  patterns:
+  - Start plex
+  - Start plex container
+  - Start plex docker
+  - Start plex docker container
+  responses:
+  - I will start your plex container
+  - fireing up plex
+  - starting your plex container
+- tag: stop plex
+  patterns:
+  - Stop plex
+  - Stop plex container
+  - Stop plex docker
+  - Stop plex docker container
+  responses:
+  - I will stop your plex container
+  - stopping your plex container
+  - shutting down your plex container
+- tag: restart plex
+  patterns:
+  - Restart plex
+  - Restart plex container
+  - Restart plex docker
+  - Restart plex docker container
+  responses:
+  - I will restart your plex container
+  - restarting your plex container
+  - rebooting your plex container
+
+- tag: start sabnzb
+  patterns:
+  - Start sabnzb
+  - Start sabnzb container
+  - Start sabnzb docker
+  - Start sabnzb docker container
+  responses:
+  - I will start your sabnzb container
+  - fireing up sabnzb
+  - starting your sabnzb container
+- tag: stop sabnzb
+  patterns:
+  - Stop sabnzb
+  - Stop sabnzb container
+  - Stop sabnzb docker
+  - Stop sabnzb docker container
+  responses:
+  - I will stop your sabnzb container
+  - stopping your sabnzb container
+  - shutting down your sabnzb container
+- tag: restart sabnzb
+  patterns:
+  - Restart sabnzb
+  - Restart sabnzb container
+  - Restart sabnzb docker
+  - Restart sabnzb docker container
+  responses:
+  - I will restart your sabnzb container
+  - restarting your sabnzb container
+  - rebooting your sabnzb container
+
+- tag: start stable diffusion
+  patterns:
+  - Start stable diffusion
+  - Start stable diffusion container
+  - Start stable diffusion docker
+  - Start stable diffusion docker container
+  responses:
+  - I will start your stable diffusion container
+  - fireing up stable diffusion
+  - starting your stable diffusion container
+- tag: stop stable diffusion
+  patterns:
+  - Stop stable diffusion
+  - Stop stable diffusion container
+  - Stop stable diffusion docker
+  - Stop stable diffusion docker container
+  responses:
+  - I will stop your stable diffusion container
+  - stopping your stable diffusion container
+  - shutting down your stable diffusion container
+- tag: restart stable diffusion
+  patterns:
+  - Restart stable diffusion
+  - Restart stable diffusion container
+  - Restart stable diffusion docker
+  - Restart stable diffusion docker container
+  responses:
+  - I will restart your stable diffusion container
+  - restarting your stable diffusion container
+  - rebooting your stable diffusion container
+
+- tag: start nginx
+  patterns:
+  - Start nginx
+  - Start nginx container
+  - Start nginx docker
+  - Start nginx docker container
+  - Start my proxy manager
+  responses:
+  - I will start your nginx container
+  - fireing up nginx
+  - starting your nginx container
+- tag: stop nginx
+  patterns:
+  - Stop nginx
+  - Stop nginx container
+  - Stop nginx docker
+  - Stop nginx docker container
+  - Stop my proxy manager
+  responses:
+  - I will stop your nginx container
+  - stopping your nginx container
+  - shutting down your nginx container
+- tag: restart nginx
+  patterns:
+  - Restart nginx
+  - Restart nginx container
+  - Restart nginx docker
+  - Restart nginx docker container
+  - Restart my proxy manager
+  responses:
+  - I will restart your nginx container
+  - restarting your nginx container
+  - rebooting your nginx container

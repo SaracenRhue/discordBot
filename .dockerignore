@@ -1,0 +1,6 @@
+__pychache__
+*.pyc
+test.py
+geckodriver.log
+secrets.yml
+data.pth
