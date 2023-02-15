@@ -4,3 +4,4 @@ test.py
 geckodriver.log
 secrets.yml
 data.pth
+.DS_Store
