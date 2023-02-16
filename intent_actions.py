@@ -12,6 +12,8 @@ with open('secrets.yml', 'r') as f:
 
 def check_intent(intent):
     match intent:
+        case 'goodbye':
+            return send_command('docker stop discordbot') 
         case 'start windows':
             return send_command('virsh start Windows\ 11')
         case 'stop windows':
