@@ -4,3 +4,4 @@ test.py
 geckodriver.log
 secrets.yml
 .DS_Store
+test.py
