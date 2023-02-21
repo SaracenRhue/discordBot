@@ -2,6 +2,7 @@ import yaml
 from os import system as cmd
 
 def send_command(command):
+    """Send a command to the server via ssh"""
     cmd(f'sshpass -p {PASSWORD} ssh {USER}@{IP} "{command}"')
 
 with open('secrets.yml', 'r') as f:
@@ -10,7 +11,8 @@ with open('secrets.yml', 'r') as f:
     PASSWORD = SECRETS['password']
     IP = SECRETS['tower_ip']
 
-def check_intent(intent):
+def check_intent(intent : str):
+    """Check if the intent has a matching action"""
     match intent:
         case 'goodbye':
             return send_command('docker stop discordbot') 
