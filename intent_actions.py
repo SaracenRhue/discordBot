@@ -5,7 +5,7 @@ def send_command(command):
     """Send a command to the server via ssh"""
     cmd(f'sshpass -p {PASSWORD} ssh {USER}@{IP} "{command}"')
 
-with open('secrets.yml', 'r') as f:
+with open('secure/secrets.yml', 'r') as f:
     SECRETS = yaml.safe_load(f)
     USER = SECRETS['user']
     PASSWORD = SECRETS['password']
