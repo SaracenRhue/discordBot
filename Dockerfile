@@ -10,5 +10,6 @@ RUN apt update && apt upgrade -y && \
 
 VOLUME /home/app/secrets
 
-CMD python train.py && \
+CMD python get_intents.py && \
+    python train.py && \
     python chats.py

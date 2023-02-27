@@ -1,0 +1,50 @@
+- tag: start windows
+  patterns:
+  - Start Windows VM
+  - Start Windows
+  - Start Windows 11
+  - Start Windows 11 VM
+  - Start Windows 11 Virtual Machine
+  - Start my Windows VM
+  - Start my Windows 11 VM
+  - Start my Windows 11 Virtual Machine
+  - Start my Windows VM
+  - Start my Windows Virtual Machine
+  - Fire up Windows 11
+  - Fire up Windows 11 VM
+  - Fire up Windows 11 Virtual Machine
+  - Fire up my Windows VM
+  - Fire up my W11
+  - Fire up my W11 VM
+  responses:
+  - I will start your Windows 11 VM
+  - I will start your Windows VM
+  - I will start your Windows 11 Virtual Machine
+  - starting your Windows 11 VM
+  - starting your Windows VM
+  - starting your Windows 11 Virtual Machine
+- tag: stop windows
+  patterns:
+  - Stop Windows VM
+  - Stop Windows
+  - Stop Windows 11
+  - Stop Windows 11 VM
+  - Stop Windows 11 Virtual Machine
+  - Stop my Windows VM
+  - Stop my Windows 11 VM
+  - Stop my Windows 11 Virtual Machine
+  - Stop my Windows VM
+  - Stop my Windows Virtual Machine
+  - Shut down Windows 11
+  - Shut down Windows 11 VM
+  - Shut down Windows 11 Virtual Machine
+  - Shut down my Windows VM
+  - Shut down my W11
+  - Shut down my W11 VM
+  responses:
+  - I will stop your Windows 11 VM
+  - I will stop your Windows VM
+  - I will stop your Windows 11 Virtual Machine
+  - stopping your Windows 11 VM
+  - stopping your Windows VM
+  - stopping your Windows 11 Virtual Machine
