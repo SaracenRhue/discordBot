@@ -1,4 +1,5 @@
 import random
+import json
 import yaml
 import torch
 import discord
@@ -15,8 +16,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 client = discord.Client(intents=discord.Intents.default())
 
 
-with open('intents.yml', 'r') as f:
-    intents = yaml.safe_load(f)
+with open('intents.json', 'r') as f:
+    intents = json.load(f)
 with open('secure/secrets.yml', 'r') as f:
     data = yaml.safe_load(f)
     TOKEN = data['token']
@@ -64,7 +65,7 @@ async def on_message(message):
   if prob.item() > 0.75:
       for intent in intents['intents']:
           if tag == intent["tag"]:
-              check_intent(intent["tag"])
+              check_intent(intent["tag"], mgs)
               await message.channel.send(f"{random.choice(intent['responses'])}")
               print(f'tag: {intent["tag"]}')
   else:

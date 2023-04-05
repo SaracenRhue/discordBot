@@ -4,12 +4,14 @@
   - What should I call you?
   - What do you go by?
   - What are you called?
+  - Who are you?
   responses:
   - My name is Edith
   - You can call me Edith
   - I go by Edith
   - They call me Edith
-  
+  - I am Edith
+
 - tag: greeting
   patterns:
   - Hi
@@ -18,38 +20,68 @@
   - Is anyone there?
   - Hello
   - Good day
+  - Hi there
   responses:
   - Hey :-)
   - Hello, thanks for visiting
   - Hi there, what can I do for you?
   - Hi there, how can I help?
+  - Greetings! How can I assist you today?
 
 - tag: goodbye
   patterns:
   - Bye
   - See you later
   - Goodbye
+  - Farewell
+  - Take care
   responses:
   - See you later, thanks for visiting
   - Have a nice day
   - Bye! Come back again soon.
+  - Farewell! Have a great day.
 
 - tag: thanks
   patterns:
-  - Thanks
+  - Thanks  
   - Thank you
   - That's helpful
   - Thank's a lot!
+  - Thanks so much
   responses:
   - Happy to help!
   - Any time!
   - My pleasure
+  - You're welcome!
 
 - tag: funny
   patterns:
   - Tell me a joke!
   - Tell me something funny!
   - Do you know a joke?
+  - Make me laugh
   responses:
   - Why did the hipster burn his mouth? He drank the coffee before it was cool.
   - What did the buffalo say when his son left for college? Bison.
+  - Why don't scientists trust atoms? Because they make up everything.
+
+- tag: help
+  patterns:
+  - Can you help me?
+  - I need help
+  - What can you do for me?
+  - What services do you provide?
+  responses:
+  - I'm here to help! What do you need assistance with?
+  - Sure, I'd be happy to help. What do you need?
+  - Of course! Please tell me what you need help with.
+
+- tag: about
+  patterns:
+  - What are you?
+  - Who created you?
+  - What is your purpose?
+  responses:
+  - I am a chatbot designed to answer questions and provide information. I was created by a team of developers.
+  - My purpose is to assist users and provide helpful information.
+  - I am an AI language model created to help with various tasks and answer questions.

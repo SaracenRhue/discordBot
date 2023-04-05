@@ -1,0 +1,10 @@
+- tag: weather
+  patterns:
+  - What's the weather like?
+  - What's the weather today?
+  - Tell me the weather forecast
+  - What's the temperature outside?
+  - Will it rain today?
+  responses:
+  - Let me check the weather for you.
+  - Give me a moment to fetch the weather information.

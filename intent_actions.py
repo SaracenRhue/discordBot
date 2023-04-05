@@ -1,5 +1,6 @@
 import yaml
 from os import system as cmd
+import utils
 
 def send_command(command):
     """Send a command to the server via ssh"""
@@ -11,7 +12,7 @@ with open('secure/secrets.yml', 'r') as f:
     PASSWORD = SECRETS['password']
     IP = SECRETS['tower_ip']
 
-def check_intent(intent : str):
+def check_intent(intent : str, message : str):
     """Check if the intent has a matching action"""
     match intent:
         case 'goodbye':
@@ -44,5 +45,6 @@ def check_intent(intent : str):
             return send_command('docker stop NginxProxyManager')
         case 'restart nginx':
             return send_command('docker restart NginxProxyManager')
-        case _:
+        case'set_reminder':
+            return utils.extract_reminder_details(message)
             pass

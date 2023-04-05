@@ -1,0 +1,9 @@
+- tag: news
+  patterns:
+  - What's the latest news?
+  - Give me the headlines
+  - Show me some news articles
+  - What's happening in the world?
+  responses:
+  - 'Here are the latest news headlines:'
+  - 'Let me find the most recent news articles for you:'
