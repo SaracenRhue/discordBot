@@ -6,3 +6,4 @@ secrets.yml
 .DS_Store
 test.py
 data.pth
+gpt4all-converted.bin

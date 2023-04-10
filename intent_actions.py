@@ -1,6 +1,7 @@
 import yaml
 from os import system as cmd
 import utils
+from pyllamacpp.model import Model
 
 def send_command(command):
     """Send a command to the server via ssh"""
@@ -45,6 +46,7 @@ def check_intent(intent : str, message : str):
             return send_command('docker stop NginxProxyManager')
         case 'restart nginx':
             return send_command('docker restart NginxProxyManager')
-        case'set_reminder':
-            return utils.extract_reminder_details(message)
-            pass
+        case 'unknown':
+            model = Model(ggml_model='./gpt4all-converted.bin', n_ctx=512)
+            generated_text = model.generate("Once upon a time, ", n_predict=55)
+            print(generated_text)

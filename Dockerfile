@@ -5,7 +5,7 @@ WORKDIR /home/app
 COPY . .
 
 RUN apt update && apt upgrade -y && \
-    apt install -y sshpass && \
+    apt install -y sshpass gcc && \
     pip install -r requirements.txt
 
 VOLUME /home/app/secure

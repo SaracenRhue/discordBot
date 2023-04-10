@@ -1,12 +1,18 @@
 import random
 import json
+import os
 import yaml
 import torch
 import discord
+from pyllamacpp.model import Model
 
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from intent_actions import check_intent
+
+gpt_model = os.listdir('models')
+gpt_model.remove('data.pth')
+gpt_model = gpt_model[0]
 
 def check_author(message):
     if message.author == client.user and str(message.author) != ADMIN:
@@ -23,7 +29,7 @@ with open('secure/secrets.yml', 'r') as f:
     TOKEN = data['token']
     ADMIN = data['bot_admin']
 
-FILE = "data.pth"
+FILE = "models/data.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
@@ -69,7 +75,9 @@ async def on_message(message):
               await message.channel.send(f"{random.choice(intent['responses'])}")
               print(f'tag: {intent["tag"]}')
   else:
-      await message.channel.send(f"I do not understand...")
+    gptmodel = Model(ggml_model=f'models/{gpt_model}', n_ctx=512)
+    generated_text = gptmodel.generate(mgs, n_predict=200)
+    await message.channel.send(generated_text)
     
 
 client.run(TOKEN)
