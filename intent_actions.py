@@ -46,7 +46,3 @@ def check_intent(intent : str, message : str):
             return send_command('docker stop NginxProxyManager')
         case 'restart nginx':
             return send_command('docker restart NginxProxyManager')
-        case 'unknown':
-            model = Model(ggml_model='./gpt4all-converted.bin', n_ctx=512)
-            generated_text = model.generate("Once upon a time, ", n_predict=55)
-            print(generated_text)
