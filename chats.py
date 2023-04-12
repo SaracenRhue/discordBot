@@ -5,7 +5,6 @@ import yaml
 import torch
 import discord
 from pyllamacpp.model import Model
-
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from intent_actions import check_intent
@@ -13,6 +12,7 @@ from intent_actions import check_intent
 gpt_model = os.listdir('models')
 gpt_model.remove('data.pth')
 gpt_model = gpt_model[0]
+gptmodel = Model(ggml_model=f'models/{gpt_model}', n_ctx=512)
 
 def check_author(message):
     if message.author == client.user and str(message.author) != ADMIN:
@@ -51,13 +51,19 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+  mgs = str(message.content)
   if check_author(message) == False:
     return
-
-  mgs = message.content
+  elif not '#' in mgs and not '/' in mgs:
+    generated_text = gptmodel.generate(mgs, n_predict=200)
+    await message.channel.send(generated_text)
+    return
+    
+  mgs = mgs[1:]
 
   # sentence = "do you use credit cards?"
   sentence = mgs
+
    
   sentence = tokenize(sentence)
   X = bag_of_words(sentence, all_words)
@@ -75,7 +81,6 @@ async def on_message(message):
               await message.channel.send(f"{random.choice(intent['responses'])}")
               print(f'tag: {intent["tag"]}')
   else:
-    gptmodel = Model(ggml_model=f'models/{gpt_model}', n_ctx=512)
     generated_text = gptmodel.generate(mgs, n_predict=200)
     await message.channel.send(generated_text)
     
