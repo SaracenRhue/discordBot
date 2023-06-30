@@ -1,11 +1,10 @@
 import yaml
 from os import system as cmd
-import utils
-from pyllamacpp.model import Model
+
 
 def send_command(command):
     """Send a command to the server via ssh"""
-    cmd(f'sshpass -p {PASSWORD} ssh {USER}@{IP} "{command}"')
+    cmd(f'sshpass -p {PASSWORD} ssh {USER}@{IP} -p 22 "{command}"')
 
 with open('secure/secrets.yml', 'r') as f:
     SECRETS = yaml.safe_load(f)

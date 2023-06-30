@@ -1,18 +1,31 @@
 import random
 import json
-import os
 import yaml
 import torch
 import discord
+import os
 from pyllamacpp.model import Model
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from intent_actions import check_intent
+from langchain.document_loaders import DirectoryLoader
+from langchain.indexes import VectorstoreIndexCreator
+from langchain.chat_models import ChatOpenAI
 
-gpt_model = os.listdir('models')
-gpt_model.remove('data.pth')
-gpt_model = gpt_model[0]
-gptmodel = Model(ggml_model=f'models/{gpt_model}', n_ctx=512)
+
+with open('intents.json', 'r') as f:
+    intents = json.load(f)
+with open('secure/secrets.yml', 'r') as f:
+    data = yaml.safe_load(f)
+    TOKEN = data['token']
+    ADMIN = data['bot_admin']
+    OPENAI_KEY = data['openAI']
+    
+os.environ['OPENAI_API_KEY'] = OPENAI_KEY
+
+
+loader = DirectoryLoader('data')
+index = VectorstoreIndexCreator().from_loaders([loader])
 
 def check_author(message):
     if message.author == client.user and str(message.author) != ADMIN:
@@ -22,12 +35,6 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 client = discord.Client(intents=discord.Intents.default())
 
 
-with open('intents.json', 'r') as f:
-    intents = json.load(f)
-with open('secure/secrets.yml', 'r') as f:
-    data = yaml.safe_load(f)
-    TOKEN = data['token']
-    ADMIN = data['bot_admin']
 
 FILE = "models/data.pth"
 data = torch.load(FILE)
@@ -51,20 +58,18 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+  if message.author == client.user:
+    return
   mgs = str(message.content)
   # if check_author(message) == False:
   #   return
   if not '#' in mgs and not '/' in mgs:
-    generated_text = gptmodel.generate(mgs, n_predict=200)
-    await message.channel.send(generated_text)
+    response = index.query(mgs, llm=ChatOpenAI())
+    await message.channel.send(response)
     return
     
   mgs = mgs[1:]
-
-  # sentence = "do you use credit cards?"
   sentence = mgs
-
-   
   sentence = tokenize(sentence)
   X = bag_of_words(sentence, all_words)
   X = X.reshape(1, X.shape[0])
@@ -81,8 +86,8 @@ async def on_message(message):
               await message.channel.send(f"{random.choice(intent['responses'])}")
               print(f'tag: {intent["tag"]}')
   else:
-    generated_text = gptmodel.generate(mgs, n_predict=200)
-    await message.channel.send(generated_text)
+    response = index.query(mgs, llm=ChatOpenAI())
+    await message.channel.send(response)
     
 
 client.run(TOKEN)

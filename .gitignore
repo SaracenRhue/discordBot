@@ -7,3 +7,5 @@ secrets.yml
 test.py
 data.pth
 gpt4all-converted.bin
+data
+.chroma

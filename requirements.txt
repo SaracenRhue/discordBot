@@ -4,3 +4,7 @@ nltk
 torch
 numpy
 pyllamacpp
+unstructured
+chromadb
+tiktoken
+openai
