@@ -52,9 +52,9 @@ async def on_ready():
 @client.event
 async def on_message(message):
   mgs = str(message.content)
-  if check_author(message) == False:
-    return
-  elif not '#' in mgs and not '/' in mgs:
+  # if check_author(message) == False:
+  #   return
+  if not '#' in mgs and not '/' in mgs:
     generated_text = gptmodel.generate(mgs, n_predict=200)
     await message.channel.send(generated_text)
     return
