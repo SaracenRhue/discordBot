@@ -5,9 +5,9 @@ WORKDIR /home/app
 COPY . .
 
 RUN apt update && apt upgrade -y && \
-    apt install -y sshpass gcc && \
+    apt install -y sshpass g++ && \
     pip install --upgrade pip setuptools wheel && \
-    pip install -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt
 
 # VOLUME /home/app/secure
 
